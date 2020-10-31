@@ -1,0 +1,19 @@
+.button {
+  align-items: center;
+  background-color: orange;
+  border: 2px solid var(--c-black);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  outline: 0;
+
+  &:hover {
+    background: darken(orange, 5%);
+  }
+}
+
+.buttonRounded {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}

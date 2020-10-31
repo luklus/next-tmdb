@@ -1,0 +1,21 @@
+.header {
+  background-color: var(--c-black);
+  color: var(--c-white);
+  height: 6rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.headerWrap {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: orange;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+}
