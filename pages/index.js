@@ -50,7 +50,9 @@ const HomePage = () => {
     <LayoutComponent>
       <HeroComponent small={true}>
         <div className={cl.homeHero}>
-          <h1>what do you want to see today?</h1>
+          <h1>
+            what do you want to see today <span>?</span>
+          </h1>
         </div>
       </HeroComponent>
 

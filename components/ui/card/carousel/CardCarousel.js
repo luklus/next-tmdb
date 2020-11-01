@@ -3,7 +3,12 @@ import cl from './CardCarousel.module.scss'
 
 export const CardCarouselComponent = ({ data }) => {
   return (
-    <Link href="/">
+    <Link
+      href={{
+        pathname: `${data.type}/[id]`,
+        query: { id: data.id },
+      }}
+    >
       <article className={cl.card}>
         <div className={cl.cardPoster}>
           <img alt="Poster" loading="lazy" src={data.imgs} />

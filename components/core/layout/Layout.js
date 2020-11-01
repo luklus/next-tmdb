@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import { HeaderComponent } from '../header'
 import { appsConfig } from '../../../config/apps'
+
+import { FooterComponent } from '../footer'
+import { HeaderComponent } from '../header'
 
 export const LayoutComponent = ({
   children,
@@ -14,7 +16,8 @@ export const LayoutComponent = ({
       <meta name="description" content={appsConfig.seo.defaultDescription} />
     </Head>
 
-    <HeaderComponent></HeaderComponent>
+    <HeaderComponent />
     {children}
+    <FooterComponent />
   </>
 )

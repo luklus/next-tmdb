@@ -17,8 +17,8 @@ const SearchPage = () => {
           </h1>
         </div>
       </HeroComponent>
-      <main>
-        <h1>Search</h1>
+      <main className="wrap">
+        <h1>Search - WIP</h1>
       </main>
     </LayoutComponent>
   )
