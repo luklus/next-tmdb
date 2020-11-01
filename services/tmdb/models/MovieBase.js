@@ -1,1 +1,1 @@
-export const MovieBase = (movieBaseResponse) => ({})
+export const MovieBaseModel = (movieBaseResponse) => ({})

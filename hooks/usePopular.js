@@ -1,8 +1,8 @@
 import useSWR from 'swr'
 import { fetcher } from '../helpers/fetcher'
 
-export const useTrending = (period) => {
-  const { data, error } = useSWR(`/api/trending?period=${period}`, fetcher)
+export const usePopular = (type) => {
+  const { data, error } = useSWR(`/api/popular?type=${type}`, fetcher)
 
   return {
     data,

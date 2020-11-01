@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cardPoster {
+  border-radius: 0.5rem;
+  height: 12rem;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  height: 4rem;
+  padding: 0.5rem;
+
+  p {
+    text-align: center;
+
+    &:last-of-type {
+      margin-top: auto;
+    }
+  }
+}

@@ -11,7 +11,10 @@
 
   & > * {
     background-color: var(--c-gray-200);
+    border-radius: 0.5rem;
+    cursor: pointer;
     height: 16rem;
+    overflow: hidden;
     scroll-snap-align: start;
   }
 }
