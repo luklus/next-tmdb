@@ -5,7 +5,7 @@ export const CardCarouselComponent = ({ data }) => {
   return (
     <Link
       href={{
-        pathname: `${data.type}/[id]`,
+        pathname: `/${data.type}/[id]`,
         query: { id: data.id },
       }}
     >

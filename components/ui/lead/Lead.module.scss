@@ -1,6 +1,13 @@
-.lead {
+.lead,
+.leadDesc {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+
   width: 100%;
+
+  p {
+    column-count: 3;
+  }
 }

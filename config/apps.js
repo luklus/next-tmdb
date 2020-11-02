@@ -4,6 +4,13 @@ export const appsConfig = {
     defaultDescription: 'Next.js TMDB',
   },
   switches: {
+    credits: [
+      { name: 'acting', type: 'acting' },
+      { name: 'crew', type: 'crew' },
+      { name: 'directing', type: 'directing' },
+      { name: 'production', type: 'production' },
+      { name: 'writing', type: 'writing' },
+    ],
     popular: [
       { name: 'movies', type: 'movie' },
       { name: 'tv shows', type: 'tv' },
