@@ -41,7 +41,9 @@ const MoviePage = ({ erroCode, movie }) => {
         </div>
       </HeroComponent>
       <main className="wrap">
-        <h1>Movie - WIP</h1>
+        <div className="part">
+          <h1>Movie - WIP</h1>
+        </div>
       </main>
     </LayoutComponent>
   )

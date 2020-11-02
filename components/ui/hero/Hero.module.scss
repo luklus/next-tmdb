@@ -1,15 +1,16 @@
 .hero {
-  background-color: var(--c-black);
+  background-color: black;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  color: var(--c-white);
-  height: 36rem;
+  color: white;
+  height: 30rem;
   position: relative;
 
   &::after {
     background: radial-gradient(
       circle,
-      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 0%,
       rgba(0, 0, 0, 1) 100%
     );
     content: '';
@@ -21,10 +22,16 @@
 }
 
 .heroSmall {
-  height: 26rem;
+  height: 22rem;
 
   h1 {
     text-align: center;
+  }
+}
+
+.heroMobi {
+  @media (min-width: 768px) {
+    background-image: none !important;
   }
 }
 

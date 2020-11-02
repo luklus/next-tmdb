@@ -57,33 +57,37 @@ const HomePage = () => {
       </HeroComponent>
 
       <main className="wrap">
-        <LeadComponent>popular</LeadComponent>
+        <div className="part">
+          <LeadComponent>popular</LeadComponent>
 
-        <SwitchComponent
-          elements={appsConfig.switches.popular}
-          selected={popular}
-          onSelected={(selectedElement) => setPopular(selectedElement)}
-        />
+          <SwitchComponent
+            elements={appsConfig.switches.popular}
+            selected={popular}
+            onSelected={(selectedElement) => setPopular(selectedElement)}
+          />
 
-        {isLoadingPopular ? (
-          <CarouselLoadComponent />
-        ) : (
-          <CarouselComponent>{popularCarousel}</CarouselComponent>
-        )}
+          {isLoadingPopular ? (
+            <CarouselLoadComponent />
+          ) : (
+            <CarouselComponent>{popularCarousel}</CarouselComponent>
+          )}
+        </div>
 
-        <LeadComponent>trending</LeadComponent>
+        <div className="part">
+          <LeadComponent>trending</LeadComponent>
 
-        <SwitchComponent
-          elements={appsConfig.switches.trending}
-          selected={trending}
-          onSelected={(selectedElement) => setTrending(selectedElement)}
-        />
+          <SwitchComponent
+            elements={appsConfig.switches.trending}
+            selected={trending}
+            onSelected={(selectedElement) => setTrending(selectedElement)}
+          />
 
-        {isLoadingTrending ? (
-          <CarouselLoadComponent />
-        ) : (
-          <CarouselComponent>{trendingCarousel}</CarouselComponent>
-        )}
+          {isLoadingTrending ? (
+            <CarouselLoadComponent />
+          ) : (
+            <CarouselComponent>{trendingCarousel}</CarouselComponent>
+          )}
+        </div>
       </main>
     </LayoutComponent>
   )
