@@ -1,19 +1,19 @@
 .carousel {
   display: grid;
-  grid-auto-columns: 10rem;
+  grid-auto-columns: 11rem;
   grid-auto-flow: column;
   grid-gap: 2rem;
   margin: 2rem 0;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  scroll-snap-points-y: repeat(12rem);
+  scroll-snap-points-y: repeat(13rem);
   width: 100%;
 
   & > * {
     background-color: var(--c-gray-200);
     border-radius: 0.5rem;
     cursor: pointer;
-    height: 17rem;
+    height: 20rem;
     overflow: hidden;
     scroll-snap-align: start;
   }

@@ -1,4 +1,6 @@
 import Error from 'next/error'
+
+import { appsConfig } from '../../config/apps'
 import { MovieBaseModel } from '../../services/tmdb/models/MovieBase'
 import { tmdb } from '../../services/tmdb'
 
@@ -24,7 +26,9 @@ const MoviePage = ({ erroCode, movie }) => {
   if (erroCode) return <Error statusCode={erroCode} />
 
   return (
-    <LayoutComponent>
+    <LayoutComponent
+      title={`${appsConfig.seo.defaultTitle} | ${movie.heroInfo.title}`}
+    >
       <HeroComponent background={movie.heroInfo.backdrop}>
         <div className={cl.movieHero}>
           <div className={cl.movieHeroInfo}>

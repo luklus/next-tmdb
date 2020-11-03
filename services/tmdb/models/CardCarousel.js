@@ -10,7 +10,7 @@ export const CardCarouselModel = (cardResponse, type) => {
         id: cardResponse.id,
         imgs: cardResponse.poster_path
           ? `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`
-          : '/images/icons/no-photos.svg',
+          : tmdbConfig.basePathEmpty,
         name: cardResponse.title,
         type: 'movie',
       }
@@ -20,7 +20,7 @@ export const CardCarouselModel = (cardResponse, type) => {
         desc: cardResponse.known_for_department,
         imgs: cardResponse.profile_path
           ? `${tmdbConfig.basePathPoster}${cardResponse.profile_path}`
-          : '/images/icons/no-photos.svg',
+          : tmdbConfig.basePathEmpty,
         id: cardResponse.id,
         name: cardResponse.name,
         type: 'person',
@@ -37,7 +37,7 @@ export const CardCarouselModel = (cardResponse, type) => {
         id: cardResponse.id,
         imgs: cardResponse.poster_path
           ? `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`
-          : '/images/icons/no-photos.svg',
+          : tmdbConfig.basePathEmpty,
         name: cardResponse.name,
         type: 'tv',
       }

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { appsConfig } from '../../../config/apps'
+import { ScrollComponent } from '../../ui/scroll/Scroll'
 
 import { FooterComponent } from '../footer'
 import { HeaderComponent } from '../header'
@@ -18,6 +19,8 @@ export const LayoutComponent = ({
 
     <HeaderComponent />
     {children}
+
+    <ScrollComponent />
     <FooterComponent />
   </>
 )

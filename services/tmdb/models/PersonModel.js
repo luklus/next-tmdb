@@ -22,6 +22,6 @@ export const PersonModel = ({
   name,
   profile: profile_path
     ? `${tmdbConfig.basePathProfile}${profile_path}`
-    : '/images/icons/no-photos.svg',
+    : tmdbConfig.basePathEmpty,
   role: known_for_department.toLowerCase(),
 })

@@ -25,5 +25,10 @@ export const TableCreditsComponent = ({ credits }) => {
       </Link>
     ))
 
-  return <ul>{list}</ul>
+  return (
+    <>
+      <div className={cl.tableSummary}>total results: {list.length}</div>
+      <ul>{list}</ul>
+    </>
+  )
 }

@@ -20,7 +20,7 @@ export const CreditModel = (credit, type) => {
         id: credit.id,
         imgs: credit.poster_path
           ? `${tmdbConfig.basePathPoster}${credit.poster_path}`
-          : '/images/icons/no-photos.svg',
+          : tmdbConfig.basePathEmpty,
         title: credit.media_type === 'movie' ? credit.title : credit.name,
         type: credit.media_type,
       }
@@ -46,7 +46,7 @@ export const CreditModel = (credit, type) => {
         id: credit.id,
         imgs: credit.poster_path
           ? `${tmdbConfig.basePathPoster}${credit.poster_path}`
-          : '/images/icons/no-photos.svg',
+          : tmdbConfig.basePathEmpty,
         title: credit.media_type === 'movie' ? credit.title : credit.name,
         type: credit.media_type,
       }

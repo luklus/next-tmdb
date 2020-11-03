@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import Error from 'next/error'
 
+import { appsConfig } from '../../config/apps'
 import { CardCarouselModel } from '../../services/tmdb/models/CardCarousel'
-import { tmdb } from '../../services/tmdb'
 import { PersonModel } from '../../services/tmdb/models/PersonModel'
+import { tmdb } from '../../services/tmdb'
 import { useCredits } from '../../hooks/useCredits'
 import { useKnovnFor } from '../../hooks/useKnovnFor'
 
@@ -56,7 +57,7 @@ const PersonPage = ({ erroCode, person }) => {
   console.log('hi', creditsObiect)
 
   return (
-    <LayoutComponent>
+    <LayoutComponent title={`${appsConfig.seo.defaultTitle} | ${person.name}`}>
       <HeroComponent background={person.profile} onlyMobi={true}>
         <div className={cl.personHero}>
           <div className={cl.personHeroImage}>

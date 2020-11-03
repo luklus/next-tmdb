@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+.tableSummary {
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 .tableItem {
   align-items: center;
   border: 1px solid var(--c-gray-200);
