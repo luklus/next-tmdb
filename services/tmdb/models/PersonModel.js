@@ -20,6 +20,8 @@ export const PersonModel = ({
   credits: combined_credits,
   deathday,
   name,
-  profile: `${tmdbConfig.basePathProfile}${profile_path}`,
+  profile: profile_path
+    ? `${tmdbConfig.basePathProfile}${profile_path}`
+    : '/images/icons/no-photos.svg',
   role: known_for_department.toLowerCase(),
 })

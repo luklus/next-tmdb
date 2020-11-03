@@ -51,7 +51,7 @@ const HomePage = () => {
       <HeroComponent small={true}>
         <div className={cl.homeHero}>
           <h1>
-            what do you want to see today <span>?</span>
+            what do you want to watch today <span>?</span>
           </h1>
         </div>
       </HeroComponent>

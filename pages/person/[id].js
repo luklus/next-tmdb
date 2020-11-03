@@ -17,6 +17,10 @@ import { LabelComponent } from '../../components/ui/label'
 import { LayoutComponent } from '../../components/core/layout'
 import { LeadComponent, LeadDescComponent } from '../../components/ui/lead'
 import { SwitchComponent } from '../../components/ui/switch'
+import {
+  TableComponent,
+  TableCreditsComponent,
+} from '../../components/ui/table'
 
 import cl from '../../styles/modules/Person.module.scss'
 
@@ -49,7 +53,7 @@ const PersonPage = ({ erroCode, person }) => {
     />
   ))
 
-  console.log('hi')
+  console.log('hi', creditsObiect)
 
   return (
     <LayoutComponent>
@@ -84,7 +88,9 @@ const PersonPage = ({ erroCode, person }) => {
       <main className="wrap">
         <div className="part">
           <LeadComponent>biography</LeadComponent>
-          <LeadDescComponent>{person.biography}</LeadDescComponent>
+          <LeadDescComponent>
+            {person.biography || 'no data yet'}
+          </LeadDescComponent>
         </div>
 
         <div className="part">
@@ -105,6 +111,10 @@ const PersonPage = ({ erroCode, person }) => {
             selected={credits}
             onSelected={(selectedElement) => setCredits(selectedElement)}
           />
+
+          <TableComponent>
+            <TableCreditsComponent credits={creditsObiect[credits]} />
+          </TableComponent>
         </div>
       </main>
     </LayoutComponent>

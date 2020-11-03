@@ -8,7 +8,9 @@ export const CardCarouselModel = (cardResponse, type) => {
           year: 'numeric',
         }),
         id: cardResponse.id,
-        imgs: `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`,
+        imgs: cardResponse.poster_path
+          ? `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`
+          : '/images/icons/no-photos.svg',
         name: cardResponse.title,
         type: 'movie',
       }
@@ -16,7 +18,9 @@ export const CardCarouselModel = (cardResponse, type) => {
     case 'person':
       return {
         desc: cardResponse.known_for_department,
-        imgs: `${tmdbConfig.basePathPoster}${cardResponse.profile_path}`,
+        imgs: cardResponse.profile_path
+          ? `${tmdbConfig.basePathPoster}${cardResponse.profile_path}`
+          : '/images/icons/no-photos.svg',
         id: cardResponse.id,
         name: cardResponse.name,
         type: 'person',
@@ -31,7 +35,9 @@ export const CardCarouselModel = (cardResponse, type) => {
           }
         ),
         id: cardResponse.id,
-        imgs: `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`,
+        imgs: cardResponse.poster_path
+          ? `${tmdbConfig.basePathPoster}${cardResponse.poster_path}`
+          : '/images/icons/no-photos.svg',
         name: cardResponse.name,
         type: 'tv',
       }
