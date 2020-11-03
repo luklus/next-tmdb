@@ -20,7 +20,8 @@ export const LayoutComponent = ({
     <HeaderComponent />
     {children}
 
-    <ScrollComponent />
+    {process.browser && <ScrollComponent />}
+
     <FooterComponent />
   </>
 )
