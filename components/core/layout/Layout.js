@@ -20,7 +20,9 @@ export const LayoutComponent = ({
     <HeaderComponent />
     {children}
 
-    {process.browser && <ScrollComponent />}
+    <div suppressHydrationWarning={true}>
+      {process.browser && <ScrollComponent />}
+    </div>
 
     <FooterComponent />
   </>

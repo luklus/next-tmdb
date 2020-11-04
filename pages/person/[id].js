@@ -30,6 +30,8 @@ export const getServerSideProps = async ({ params }) => {
   const erroCode = resp.status === 200 ? false : resp.status
   const person = await resp.json()
 
+  console.log(person)
+
   return {
     props: {
       erroCode,
@@ -54,8 +56,6 @@ const PersonPage = ({ erroCode, person }) => {
     />
   ))
 
-  console.log('hi', creditsObiect)
-
   return (
     <LayoutComponent title={`${appsConfig.seo.defaultTitle} | ${person.name}`}>
       <HeroComponent background={person.profile} onlyMobi={true}>
@@ -64,7 +64,7 @@ const PersonPage = ({ erroCode, person }) => {
             <img alt="Profile" loading="lazy" src={person.profile} />
           </div>
           <div className={cl.personHeroInfo}>
-            <LabelComponent>{person.role}</LabelComponent>
+            {person.role && <LabelComponent>{person.role}</LabelComponent>}
             <h1 className="lead">{person.name}</h1>
 
             <div>

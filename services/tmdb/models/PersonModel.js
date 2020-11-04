@@ -9,7 +9,7 @@ export const PersonModel = ({
   birthday,
   combined_credits,
   deathday,
-  known_for_department,
+  known_for_department = null,
   name,
   place_of_birth,
   profile_path,
@@ -23,5 +23,5 @@ export const PersonModel = ({
   profile: profile_path
     ? `${tmdbConfig.basePathProfile}${profile_path}`
     : tmdbConfig.basePathEmpty,
-  role: known_for_department.toLowerCase(),
+  role: known_for_department ? known_for_department.toLowerCase() : null,
 })
