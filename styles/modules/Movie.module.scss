@@ -22,3 +22,39 @@
     }
   }
 }
+
+.movieBase {
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    &:first-of-type {
+      align-items: center;
+      display: flex;
+      margin-bottom: 2rem;
+      margin-right: 2rem;
+      width: 100%;
+
+      img {
+        border-radius: 0.5rem;
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        width: 14rem;
+      }
+    }
+
+    &:last-of-type {
+      flex: 1;
+
+      p {
+        max-width: 36rem;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}

@@ -1,11 +1,16 @@
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
-import { MovieBaseModel } from '../../services/tmdb/models/MovieBase'
+import { CardCarouselModel } from '../../services/tmdb/models/CardCarouselModel'
+import { MovieBaseModel } from '../../services/tmdb/models/MovieBaseModel'
 import { tmdb } from '../../services/tmdb'
 
-import { LayoutComponent } from '../../components/core/layout'
+import { CardCarouselComponent } from '../../components/ui/card'
+import { CarouselComponent } from '../../components/ui/carousel'
 import { HeroComponent } from '../../components/ui/hero'
+import { LabelComponent } from '../../components/ui/label'
+import { LayoutComponent } from '../../components/core/layout'
+import { LeadComponent } from '../../components/ui/lead'
 
 import cl from '../../styles/modules/Movie.module.scss'
 
@@ -24,6 +29,13 @@ export const getServerSideProps = async ({ params }) => {
 
 const MoviePage = ({ erroCode, movie }) => {
   if (erroCode) return <Error statusCode={erroCode} />
+
+  const castCarousel = movie.cast.map((card) => (
+    <CardCarouselComponent
+      data={CardCarouselModel(card, 'person')}
+      key={card.id}
+    />
+  ))
 
   return (
     <LayoutComponent
@@ -46,7 +58,44 @@ const MoviePage = ({ erroCode, movie }) => {
       </HeroComponent>
       <main className="wrap">
         <div className="part">
-          <h1>Movie - WIP</h1>
+          <div className={cl.movieBase}>
+            <div>
+              <img src={movie.baseInfo.poster} alt="Poster" />
+            </div>
+            <div>
+              <div>
+                {movie.baseInfo.genres.map((genre, index) => (
+                  <LabelComponent key={index}>
+                    {genre.name.toLowerCase()}
+                  </LabelComponent>
+                ))}
+              </div>
+
+              <div>
+                <p className="lead">overview</p>
+                <p>{movie.baseInfo.overview}</p>
+              </div>
+
+              <div>
+                <p className="lead">production countries</p>
+                <p>
+                  {movie.baseInfo.productionCountries
+                    .map((country) => country.name)
+                    .join(', ')}
+                </p>
+              </div>
+
+              <div>
+                <p className="lead">box office</p>
+                <p>budget: {movie.baseInfo.budget}</p>
+                <p>revenue: {movie.baseInfo.revenue}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="part">
+          <LeadComponent>cast</LeadComponent>
+          <CarouselComponent>{castCarousel}</CarouselComponent>
         </div>
       </main>
     </LayoutComponent>

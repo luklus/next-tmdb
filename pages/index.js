@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { appsConfig } from '../config/apps'
 import { usePopular } from '../hooks/usePopular'
 import { useTrending } from '../hooks/useTrending'
-import { CardCarouselModel } from '../services/tmdb/models/CardCarousel'
+import { CardCarouselModel } from '../services/tmdb/models/CardCarouselModel'
 
 import { CardCarouselComponent } from '../components/ui/card'
 import {

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
-import { CardCarouselModel } from '../../services/tmdb/models/CardCarousel'
+import { CardCarouselModel } from '../../services/tmdb/models/CardCarouselModel'
 import { PersonModel } from '../../services/tmdb/models/PersonModel'
 import { tmdb } from '../../services/tmdb'
 import { useCredits } from '../../hooks/useCredits'
@@ -94,6 +94,11 @@ const PersonPage = ({ erroCode, person }) => {
         </div>
 
         <div className="part">
+          <LeadComponent>gallery</LeadComponent>
+          <GalleryComponent gallery={person.gallery} />
+        </div>
+
+        <div className="part">
           <LeadComponent>known for</LeadComponent>
 
           {knovnForArray.length ? (
@@ -101,11 +106,6 @@ const PersonPage = ({ erroCode, person }) => {
           ) : (
             <CarouselLoadComponent />
           )}
-        </div>
-
-        <div className="part">
-          <LeadComponent>gallery</LeadComponent>
-          <GalleryComponent gallery={person.gallery} />
         </div>
 
         <div className="part">

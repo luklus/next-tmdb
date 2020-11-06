@@ -3,6 +3,7 @@ import { personRepository } from './repositories/personRepository'
 import { popularRepository } from './repositories/popularRepository'
 import { searchRepository } from './repositories/searchRepository'
 import { trendingRepository } from './repositories/trendingRepository'
+import { tvRepository } from './repositories/tvRepository'
 
 export const tmdb = {
   movieRepository,
@@ -10,4 +11,5 @@ export const tmdb = {
   popularRepository,
   searchRepository,
   trendingRepository,
+  tvRepository,
 }
