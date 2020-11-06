@@ -9,6 +9,7 @@ export const PersonModel = ({
   birthday,
   combined_credits,
   deathday,
+  images,
   known_for_department = null,
   name,
   place_of_birth,
@@ -19,6 +20,9 @@ export const PersonModel = ({
   birthPlace: place_of_birth,
   credits: combined_credits,
   deathday,
+  gallery: images.profiles.map((item) => ({
+    img: `${tmdbConfig.basePathProfile}${item.file_path}`,
+  })),
   name,
   profile: profile_path
     ? `${tmdbConfig.basePathProfile}${profile_path}`

@@ -1,0 +1,30 @@
+.galleryImages {
+  display: grid;
+  grid-auto-columns: 8rem;
+  grid-auto-flow: column;
+  margin: 2rem 0;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-snap-points-y: repeat(8rem);
+  width: 100%;
+
+  & > div {
+    cursor: pointer;
+    height: 12rem;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      scroll-snap-align: start;
+      transition: transform 300ms ease;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

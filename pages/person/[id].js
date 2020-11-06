@@ -14,6 +14,7 @@ import {
   CarouselLoadComponent,
 } from '../../components/ui/carousel'
 import { HeroComponent } from '../../components/ui/hero'
+import { GalleryComponent } from '../../components/ui/gallery/Gallery'
 import { LabelComponent } from '../../components/ui/label'
 import { LayoutComponent } from '../../components/core/layout'
 import { LeadComponent, LeadDescComponent } from '../../components/ui/lead'
@@ -29,8 +30,6 @@ export const getServerSideProps = async ({ params }) => {
   const resp = await tmdb.personRepository.getPerson(params.id)
   const erroCode = resp.status === 200 ? false : resp.status
   const person = await resp.json()
-
-  console.log(person)
 
   return {
     props: {
@@ -102,6 +101,11 @@ const PersonPage = ({ erroCode, person }) => {
           ) : (
             <CarouselLoadComponent />
           )}
+        </div>
+
+        <div className="part">
+          <LeadComponent>gallery</LeadComponent>
+          <GalleryComponent gallery={person.gallery} />
         </div>
 
         <div className="part">

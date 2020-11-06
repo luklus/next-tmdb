@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import cl from './Scroll.module.scss'
 
@@ -17,7 +17,10 @@ export const ScrollComponent = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  window.addEventListener('scroll', checkScrollTop)
+  useEffect(() => {
+    window.addEventListener('scroll', checkScrollTop)
+    return () => window.removeEventListener(`scroll`, checkScrollTop)
+  })
 
   return (
     <div

@@ -1,0 +1,45 @@
+.modal {
+  align-items: center;
+  background-color: rgba(black, 0.9);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+.modalChildren {
+  background-color: white;
+  border: 2px solid orange;
+  max-height: 80%;
+  max-width: 80%;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
+
+.modalClose {
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  transition: background-color 300ms ease;
+
+  &:hover {
+    background-color: var(--c-gray-200);
+  }
+}
