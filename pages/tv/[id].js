@@ -1,11 +1,11 @@
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
-import { CardCarouselModel } from '../../services/tmdb/models/CardCarouselModel'
+import { CardModel } from '../../services/tmdb/models/CardModel'
 import { tmdb } from '../../services/tmdb'
 import { TVBaseModel } from '../../services/tmdb/models/TVBaseModel'
 
-import { CardCarouselComponent } from '../../components/ui/card'
+import { CardComponent } from '../../components/ui/card'
 import { CarouselComponent } from '../../components/ui/carousel'
 import { LabelComponent } from '../../components/ui/label'
 import { LayoutComponent } from '../../components/core/layout'
@@ -31,10 +31,7 @@ const TVPage = ({ erroCode, tv }) => {
   if (erroCode) return <Error statusCode={erroCode} />
 
   const castCarousel = tv.cast.map((card) => (
-    <CardCarouselComponent
-      data={CardCarouselModel(card, 'person')}
-      key={card.id}
-    />
+    <CardComponent data={CardModel(card, 'person')} key={card.id} />
   ))
 
   return (

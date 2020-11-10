@@ -1,11 +1,11 @@
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
-import { CardCarouselModel } from '../../services/tmdb/models/CardCarouselModel'
+import { CardModel } from '../../services/tmdb/models/CardModel'
 import { MovieBaseModel } from '../../services/tmdb/models/MovieBaseModel'
 import { tmdb } from '../../services/tmdb'
 
-import { CardCarouselComponent } from '../../components/ui/card'
+import { CardComponent } from '../../components/ui/card'
 import { CarouselComponent } from '../../components/ui/carousel'
 import { HeroComponent } from '../../components/ui/hero'
 import { LabelComponent } from '../../components/ui/label'
@@ -31,10 +31,7 @@ const MoviePage = ({ erroCode, movie }) => {
   if (erroCode) return <Error statusCode={erroCode} />
 
   const castCarousel = movie.cast.map((card) => (
-    <CardCarouselComponent
-      data={CardCarouselModel(card, 'person')}
-      key={card.id}
-    />
+    <CardComponent data={CardModel(card, 'person')} key={card.id} />
   ))
 
   return (
@@ -44,6 +41,7 @@ const MoviePage = ({ erroCode, movie }) => {
       <HeroComponent background={movie.heroInfo.backdrop}>
         <div className={cl.movieHero}>
           <div className={cl.movieHeroInfo}>
+            <LabelComponent>movie</LabelComponent>
             <h1 className="lead">{movie.heroInfo.title}</h1>
             <p>{movie.heroInfo.tagline}</p>
             <p>

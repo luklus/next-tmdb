@@ -1,3 +1,4 @@
-import { CardCarouselComponent } from './carousel/CardCarousel'
+import { CardComponent } from './Card'
+import { CardTableComponent } from './CardTable'
 
-export { CardCarouselComponent }
+export { CardComponent, CardTableComponent }

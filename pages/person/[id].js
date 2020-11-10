@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
-import { CardCarouselModel } from '../../services/tmdb/models/CardCarouselModel'
+import { CardModel } from '../../services/tmdb/models/CardModel'
 import { PersonModel } from '../../services/tmdb/models/PersonModel'
 import { tmdb } from '../../services/tmdb'
 import { useCredits } from '../../hooks/useCredits'
 import { useKnovnFor } from '../../hooks/useKnovnFor'
 
-import { CardCarouselComponent } from '../../components/ui/card'
+import { CardComponent } from '../../components/ui/card'
 import {
   CarouselComponent,
   CarouselLoadComponent,
@@ -49,10 +49,7 @@ const PersonPage = ({ erroCode, person }) => {
   const { knovnForArray } = useKnovnFor(person.credits)
 
   const knovnFor = knovnForArray.map((card) => (
-    <CardCarouselComponent
-      data={CardCarouselModel(card, card.media_type)}
-      key={card.id}
-    />
+    <CardComponent data={CardModel(card, card.media_type)} key={card.id} />
   ))
 
   return (

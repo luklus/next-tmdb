@@ -11,14 +11,16 @@ export const appsConfig = {
       { name: 'production', type: 'production' },
       { name: 'writing', type: 'writing' },
     ],
-    popular: [
+
+    period: [
+      { name: 'today', type: 'day' },
+      { name: 'this week', type: 'week' },
+    ],
+
+    type: [
       { name: 'movies', type: 'movie' },
       { name: 'tv shows', type: 'tv' },
       { name: 'pepole', type: 'person' },
-    ],
-    trending: [
-      { name: 'today', type: 'day' },
-      { name: 'this week', type: 'week' },
     ],
   },
 }

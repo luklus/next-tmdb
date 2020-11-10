@@ -21,9 +21,8 @@ export const GalleryComponent = ({ gallery }) => {
 
       <div className={cl.galleryImages}>
         {gallery.map((image, index) => (
-          <div>
+          <div key={index}>
             <img
-              key={index}
               loading="lazy"
               src={image.img}
               onClick={() => toggModal(image.img, true)}

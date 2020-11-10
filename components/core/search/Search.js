@@ -13,7 +13,7 @@ export const SearchComponent = () => {
 
       router.push({
         pathname: '/search',
-        query: { q: search },
+        query: { q: search, t: 'multi' },
       })
 
       setSearch('')
@@ -26,7 +26,7 @@ export const SearchComponent = () => {
     if (search.length >= 3) {
       router.push({
         pathname: '/search',
-        query: { q: search },
+        query: { q: search, t: 'multi' },
       })
 
       setSearch('')

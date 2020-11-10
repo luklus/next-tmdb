@@ -1,6 +1,6 @@
 import { tmdbConfig } from '../config'
 
-export const CardCarouselModel = (cardResponse, type) => {
+export const CardModel = (cardResponse, type) => {
   switch (type) {
     case 'movie':
       return {
@@ -17,6 +17,7 @@ export const CardCarouselModel = (cardResponse, type) => {
 
     case 'person':
       return {
+        character: cardResponse?.character ? cardResponse.character : null,
         desc: cardResponse.known_for_department,
         imgs: cardResponse.profile_path
           ? `${tmdbConfig.basePathPoster}${cardResponse.profile_path}`
