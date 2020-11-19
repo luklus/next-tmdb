@@ -49,7 +49,8 @@
   }
 }
 
-.cardTable {
+.cardTable,
+.cardTableLoad {
   align-items: center;
   border: 1px solid var(--c-gray-200);
   border-radius: 0.25rem;
@@ -74,6 +75,8 @@
 
   img {
     height: 100%;
+    object-fit: cover;
+    object-position: center;
     width: 100%;
   }
 }

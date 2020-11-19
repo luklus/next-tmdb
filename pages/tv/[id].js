@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import Error from 'next/error'
 
 import { appsConfig } from '../../config/apps'
 import { CardModel } from '../../services/tmdb/models/CardModel'
 import { tmdb } from '../../services/tmdb'
 import { TVBaseModel } from '../../services/tmdb/models/TVBaseModel'
+import { useSeason } from '../../hooks/useSeason'
 
-import { CardComponent } from '../../components/ui/card'
+import { CardComponent, CardTableLoadComponent } from '../../components/ui/card'
+import { CardTableComponent } from '../../components/ui/card'
 import { CarouselComponent } from '../../components/ui/carousel'
+import { HeroComponent } from '../../components/ui/hero'
 import { LabelComponent } from '../../components/ui/label'
 import { LayoutComponent } from '../../components/core/layout'
 import { LeadComponent } from '../../components/ui/lead'
-import { HeroComponent } from '../../components/ui/hero'
+import { SwitchComponent } from '../../components/ui/switch'
 
 import cl from '../../styles/modules/TV.module.scss'
 
@@ -23,12 +27,30 @@ export const getServerSideProps = async ({ params }) => {
     props: {
       erroCode,
       tv: TVBaseModel(tv),
+      tvID: params.id,
     },
   }
 }
 
-const TVPage = ({ erroCode, tv }) => {
+const TVPage = ({ erroCode, tv, tvID }) => {
   if (erroCode) return <Error statusCode={erroCode} />
+
+  const [season, setSeason] = useState(tv.seasons[0].season_number)
+
+  const seasonsElements = tv.seasons.map((season) => ({
+    name: season.name,
+    type: season.season_number,
+  }))
+
+  const {
+    data: dataSeason,
+    isLoading: isLoadingSeason,
+    isError: isErrorSeason,
+  } = useSeason(tvID, season)
+
+  const cardTable = dataSeason?.season?.episodes.map((card) => (
+    <CardTableComponent data={CardModel(card, 'season')} key={card.id} />
+  ))
 
   const castCarousel = tv.cast.map((card) => (
     <CardComponent data={CardModel(card, 'person')} key={card.id} />
@@ -108,6 +130,13 @@ const TVPage = ({ erroCode, tv }) => {
 
         <div className="part">
           <LeadComponent>seasons</LeadComponent>
+
+          <SwitchComponent
+            elements={seasonsElements}
+            selected={season}
+            onSelected={(selectedElement) => setSeason(selectedElement)}
+          />
+          {isLoadingSeason ? <CardTableLoadComponent /> : cardTable}
         </div>
       </main>
     </LayoutComponent>

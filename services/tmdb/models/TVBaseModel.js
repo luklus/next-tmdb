@@ -38,4 +38,5 @@ export const TVBaseModel = ({
     seasons,
   },
   cast: credits.cast,
+  seasons,
 })

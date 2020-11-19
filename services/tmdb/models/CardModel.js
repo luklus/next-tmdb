@@ -42,6 +42,16 @@ export const CardModel = (cardResponse, type) => {
         name: cardResponse.name,
         type: 'tv',
       }
+    case 'season':
+      return {
+        desc: new Date(cardResponse.air_date).toLocaleDateString('en-US'),
+        id: cardResponse.id,
+        imgs: cardResponse.still_path
+          ? `${tmdbConfig.basePathPoster}${cardResponse.still_path}`
+          : tmdbConfig.basePathEmpty,
+        name: `${cardResponse.episode_number}. ${cardResponse.name}`,
+        type: 'season',
+      }
 
     default:
       return {
